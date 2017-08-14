@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+;
+
 const AppAPI = {
-	APIUrl: "http://localhost:2000",
+	APIUrl: process.env=="dev" ? "http://localhost:2000" : "http://46.254.19.117:2000",
 
 	urlIndexContainer: "/api/v1/container/index.json",
 	urlSiteLayout: "/api/v1/container/layout.json",
