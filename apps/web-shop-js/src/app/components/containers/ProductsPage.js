@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import HeadUtil from '../../utils/HeadUtil'
 import AppAPI from '../../utils/AppAPI'
 import ProductCart from '../products/ProductCart'
+import Subnavbar from '../partials/Subnavbar'
 
 
 class ProductsPage extends Component {
@@ -30,6 +31,8 @@ class ProductsPage extends Component {
 
     return (
       <div>
+        <Subnavbar items={this.state.containerData.tags} />
+        <br/>
         {this.state.containerData.products &&
           this.state.containerData.products.map(function(product){
             return (

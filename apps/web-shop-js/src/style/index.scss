@@ -4,11 +4,20 @@ html {
 
 body {
   margin: 0;
+  @media (max-width: 768px) {
+  	padding-bottom: 62px;
+  }
 }
 
-$bg-color: #ff7e00;
-$text-color: #eee;
-$bg-bottom-navbar: #000;
+$bg-color: #fff;
+$text-color: #000;
+
+$bottom-navbar-background: #000;
+$bottom-navbar-color: #fff;
+
+$sub-navabr-background: #fff;
+$sub-navbar-active-color: #000;
+$sub-navbar-active-background: #eee;
 
 
 
@@ -23,8 +32,8 @@ $bg-bottom-navbar: #000;
 
 	.top-navbar-button {
 		display: inline-block;
-		padding: 20px;
-		font-size: 16px;
+		padding: 12px;
+		font-size: 14px;
 		white-space: nowrap;
 		text-decoration: none;
 		color: $text-color;
@@ -91,21 +100,21 @@ $bg-bottom-navbar: #000;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: $bg-bottom-navbar;
+	background: $bottom-navbar-background;
 	.bottom-navbar-button {
 		text-align: center;
-		font-size: 14px;
+		font-size: 12px;
 		display: block;
-		padding: 14px 8px 8px 8px;
+		padding: 12px 6px 6px 6px;
 		text-decoration: none;
-		color: $text-color;
+		color: $bottom-navbar-color;
 		position: relative;
 		text-overflow: ellipsis;
     	overflow: hidden;
 		i {
 			display: block;
-			font-size: 24px;
-			padding-bottom: 3px;
+			font-size: 22px;
+			padding-bottom: 5px;
 			.badge {
 				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 				margin-right: 5px;
@@ -117,7 +126,8 @@ $bg-bottom-navbar: #000;
 			padding: 2px 5px 3px 5px;
 			position: absolute;
 			top: 7px;
-			border: 2px solid $bg-bottom-navbar;
+			font-size: 10px;
+			border: 2px solid $bottom-navbar-background;
 			&.badge-green {
 				background: #8bc34a;
 			}
@@ -133,9 +143,92 @@ $bg-bottom-navbar: #000;
 	}
 }
 
+.sub-navbar {
+	background: $sub-navabr-background;
+	height: 42px;
+	overflow: hidden;
+	position: relative;
+	padding-right: 60px;
+	text-align: center;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+
+	a {
+		height: 42px;
+		font-size: 16px;
+		padding-left: 10px;
+		padding-right: 10px;
+		margin-left: 5px;
+		margin-right: 5px;
+		line-height: 42px;
+		display: inline-block;
+		text-decoration: none;
+		&.active {
+			color: $sub-navbar-active-color;
+			border-bottom: 2px solid $sub-navbar-active-color;
+		}
+	}
+	.sub-navbar-container {
+		a {
+			.sub-navbar-item-image {
+				display: none;
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+	&.sub-navbar-opened {
+		overflow: visible;
+		height: auto;
+		padding-right: 0px;
+		box-shadow: 0 5px 40px rgba(0, 0, 0, 0.3);
+		.sub-navbar-container {
+			a {
+				line-height: 100%;
+				font-size: 14px;
+				width: 120px;
+				height: 120px;
+				vertical-align: top;
+				padding: 15px;
+				.sub-navbar-item-image {
+					display: block;
+					height: 64px;
+				}
+				.sub-navbar-item-title {
+					padding-top: 8px;
+					height: 36px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: block;
+				}
+				&.active {
+					border-bottom: 0;
+					background: $sub-navbar-active-background;
+				}
+			}
+		}
+		.sub-navbar-toggle {
+			position: relative;
+			display: block;
+			text-align: center;
+			background: darken($sub-navabr-background, 10%);
+			margin: 0;
+			font-size: 14px;
+		}
+	}
+	.sub-navbar-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: $sub-navabr-background;
+		i {
+			margin-left: 5px;
+		}
+	}
+}
+
 
 .promo-slider {
-	border: 1px dashed #ddd;
 	background: #fefefe;
 	height: 250px;
 	text-align: center; 
@@ -173,9 +266,9 @@ $bg-bottom-navbar: #000;
 
 
 .footer {
-	background: #fefefe;
-	text-align: center;
-	border: 1px dashed #ddd;
-	height: 200px;
-	line-height: 212px;     //  REMOVE !
+	background: #333;
+	font-size: 12px;
+	color: #ddd;
+	padding: 40px;
+	line-height: 200%;
 }
