@@ -1,0 +1,12 @@
+@import "theme-default";
+@import "mixins";
+
+
+.product-full-cart {
+	.product-full-cart-name {
+		margin: 0 0 5px 0;
+	}
+	.product-full-cart-description {
+		font-size: 18px;
+	}
+}

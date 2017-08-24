@@ -6,6 +6,8 @@ const AppAPI = {
 	urlIndexContainer: "/api/v1/container/index.json",
 	urlSiteLayout: "/api/v1/container/layout.json",
 
+	urlAddProduct: "/api/v1/basket/add_product.json",
+
 	query(params) {
 
 		let api_query_url = params.url,
@@ -22,9 +24,7 @@ const AppAPI = {
 	      	api_on_success(response);
 	      })
 	  	}
-
-
-	}
+	},
 }
 
 export default AppAPI;

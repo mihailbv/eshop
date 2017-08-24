@@ -5,6 +5,7 @@ class Home extends Component {
 
 
   render() {
+  	console.log(this.props.match.params)
     return (
       <div>
         <h1>Home page</h1>

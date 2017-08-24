@@ -1,0 +1,42 @@
+@import "theme-default";
+@import "mixins";
+
+.modal {
+
+	padding-left: 0 !important;
+
+	@media (min-width: 768px) {
+		&.modal-dialog-full .modal-dialog {
+			width: 95%;
+		}
+		&.modal-max-width-1200 .modal-dialog {
+			max-width: 1200px;
+		}
+	}
+	@media (max-width: 768px) {
+		&.modal-dialog-full .modal-dialog {
+			margin: 0;
+			.modal-content {
+				@include border-radius(0);
+				border: 0;
+			}
+		}
+	}
+	.modal-body {
+		padding: 30px;
+	}
+
+	.modal-dialog-close {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		width: 48px;
+		height: 48px;
+		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEwMCAxMDAiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cG9seWdvbiBmaWxsPSIjMDEwMTAxIiBwb2ludHM9Ijc3LjYsMjEuMSA0OS42LDQ5LjIgMjEuNSwyMS4xIDE5LjYsMjMgNDcuNiw1MS4xIDE5LjYsNzkuMiAyMS41LDgxLjEgNDkuNiw1MyA3Ny42LDgxLjEgNzkuNiw3OS4yICAgNTEuNSw1MS4xIDc5LjYsMjMgIi8+PC9zdmc+);
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+
+}

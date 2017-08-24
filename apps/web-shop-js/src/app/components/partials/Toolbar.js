@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router-dom'
+import CartService from '../../utils/CartService'
+import l from '../../utils/Localization'
 
 class Toolbar extends Component {
 
 	handleToggleNavbar = (event) => {
 		this.props.onToggleNavbar(event)
+	}
+
+	openCart = () => {
+		CartService.call(CartService.ToggleVisibility, true)
 	}
 
 	render() {
@@ -13,31 +19,31 @@ class Toolbar extends Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-3">
-							<a href="#" className="bottom-navbar-button toggle-sidebar-button" onClick={this.handleToggleNavbar}>
+							<Link to="#" className="bottom-navbar-button toggle-sidebar-button" onClick={this.handleToggleNavbar}>
 								<i className="fa fa-bars" aria-hidden="true"></i>
-								Menu
-							</a>
+								Меню
+							</Link>
 						</div>
 
 						<div className="col-xs-3">
 							<a className="bottom-navbar-button">
 								<i className="fa fa-percent" aria-hidden="true"></i>
-								News
+								Акции
 							</a>
 						</div>
 
 						<div className="col-xs-3">
 							<a className="bottom-navbar-button">
 								<i className="fa fa-comments-o" aria-hidden="true"><span className="badge badge-green">14</span></i>					
-								Responses
+								Отзывы
 							</a>
 						</div>
 
 						<div className="col-xs-3">
-							<a className="bottom-navbar-button">
+							<Link to="#" onClick={this.openCart} className="bottom-navbar-button">
 								<i className="fa fa-shopping-basket" aria-hidden="true"><span className="badge">10$</span></i>
-								Cart
-							</a>
+								{l.basket}
+							</Link>
 						</div>
 
 					</div>

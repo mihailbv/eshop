@@ -36,7 +36,7 @@ const config = {
   module: {
     rules: [
       {
-        test:     /\.jsx?$/,
+        test:     /\.(js|jsx)?$/,
         exclude:  [nodeModulesDir, vendorsDir],
         loader:   'babel-loader'
       },

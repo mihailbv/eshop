@@ -1,0 +1,39 @@
+$bg-color: #8ec112;
+$color: #fff;
+
+
+$link-color: darken($bg-color, 10%);
+$text-color: #000;
+
+
+
+
+
+
+
+
+
+
+
+$theme-main-background-color: #8ec112;
+$theme-main-text-color: #fff;
+
+$text-color: #000;
+$link-color: darken($theme-main-background-color, 20%);
+
+
+$solid-link-background: $theme-main-background-color;
+$solid-link-color: $theme-main-text-color;
+
+
+$bottom-navbar-background: #000;
+$bottom-navbar-color: #fff;
+
+$sub-navabr-background: #fff;
+$sub-navbar-active-color: #000;
+$sub-navbar-active-background: #eee;
+
+$button-text-color: $theme-main-text-color;
+
+
+$tag-no-image: "images/no-tag-image.png"
