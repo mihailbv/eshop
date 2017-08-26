@@ -1,0 +1,77 @@
+@import "theme-default";
+@import "mixins";
+
+
+.top-navbar {
+	.container {
+		@include transition(left 0.3s ease);
+	}
+
+	.top-navbar-button {
+		display: inline-block;
+		height: 50px;
+		line-height: 50px;
+		padding-left: 12px;
+		padding-right: 12px;
+		font-size: 16px;
+		white-space: nowrap;
+		text-decoration: none;
+		color: $text-color;
+		i {
+			margin-right: 5px;
+		}
+		&:hover {
+			background: rgba(0, 0, 0, 0.05);
+		}
+	}
+	.top-basket-button {
+		float: right;
+	}
+	@media (max-width: 768px) {
+		.container {
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.9);
+			width: 300px;
+			z-index: 3;
+			padding: 0;
+			padding-top: 25px;
+		}
+		.top-navbar-button {
+			color: #fff;
+			display: block;
+			text-decoration: none;
+			padding-left: 20px;
+			&:hover {
+				background: rgba(255, 255, 255, 0.1);
+			}
+			i {
+				display: none;
+			}
+		}
+		.top-basket-button {
+			float: none;
+		}
+		.sidebar-screen-overlay {
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.6);
+			z-index: 2;
+			@include transition(right 0.15s ease);
+		}
+		&.side-position-closed {
+			.container {
+				left: -300px;
+			}
+			.sidebar-screen-overlay {
+				right: 768px;
+			}
+		}
+	}
+}
+

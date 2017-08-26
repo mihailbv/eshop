@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Modal } from 'react-bootstrap'
 import AppAPI from '../../utils/AppAPI'
-import CartService from '../../utils/CartService'
+import AppEvents from '../../utils/AppEvents'
+import AppDispatcher from '../../utils/AppDispatcher'
 import l from '../../utils/Localization'
 
 class CartWidget extends Component {
@@ -22,14 +23,13 @@ class CartWidget extends Component {
 
   componentDidMount(){
     this.loadCart();
-    CartService.registerCart(this);
 
-    CartService.registerCallback(CartService.ToggleVisibility, (visible) => {
+    AppDispatcher.on(AppEvents.ToggleBasket, (visible) => {
       this.toggleCartDialog(visible)
     });
 
-    CartService.registerCallback(CartService.AddProduct, (item) => {
-      this.addToCartEffect();
+    AppDispatcher.on(AppEvents.AddProduct, (item, count) => {
+      this.addProduct(item);
     });
 
   }
@@ -40,7 +40,9 @@ class CartWidget extends Component {
       onSuccess: (response) => {
         this.setState({
           cartData: response.data.cart,
-        })
+        });
+        this.addToCartEffect();
+        AppDispatcher.fire(AppEvents.UpdateCart, response.data.cart)
       }
     })
   }
@@ -71,8 +73,8 @@ class CartWidget extends Component {
     })
   }
 
-  addProduct = (product_id, count) => {
-    this.addToCartEffect();
+  addProduct = (item, count) => {
+    this.loadCart();
   }
 
   toggleCartDialog = (visible) => {

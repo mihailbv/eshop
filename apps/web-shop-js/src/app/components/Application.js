@@ -5,9 +5,8 @@ import Navbar from './partials/Navbar'
 import Toolbar from './partials/Toolbar'
 import Footer from './partials/Footer'
 import CartWidget from './cart/CartWidget'
-import AppAPI from '../utils/AppAPI'
-import CartService from '../utils/CartService'
 import ProductsPage from './containers/ProductsPage';
+import AppAPI from '../utils/AppAPI'
 import l from '../utils/Localization'
 
 
@@ -20,7 +19,6 @@ class Application extends Component {
   }
 
   state = {
-    navbarCollapsed: true,
     containerData: {}
   }
 
@@ -35,12 +33,6 @@ class Application extends Component {
     })
   }
 
-  handleToggleNavbar = () => {
-    this.setState({
-      navbarCollapsed: !this.state.navbarCollapsed
-    })
-  }
-
   render() {
 
     return (
@@ -48,7 +40,6 @@ class Application extends Component {
         {this.state.containerData.navbar &&
           <Navbar 
               collapsed={this.state.navbarCollapsed} 
-              onToggleNavbar={this.handleToggleNavbar} 
               items={this.state.containerData.navbar} />
         }
 
@@ -57,7 +48,7 @@ class Application extends Component {
         }
         
         <CartWidget />
-        <Toolbar onToggleNavbar={this.handleToggleNavbar} />
+        <Toolbar />
         <Footer />
       </div>
     )

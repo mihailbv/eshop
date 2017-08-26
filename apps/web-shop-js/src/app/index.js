@@ -14,6 +14,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import '../style/index.scss';
+import '../style/navbar.scss';
+import '../style/toolbar.scss';
 import '../style/products.scss';
 import '../style/cart.scss';
 import '../style/bootstrap-float-label.min.css';
@@ -32,9 +34,9 @@ render((
 	<Router history={browserHistory}>
 		<Application>
 			<Switch>
-				<Route exact path='/' component={ProductsPage}/>
-				<Route exact path='/:tag_id' render={(props) => (<ProductsPage {...props} />)}/>
-				<Route exact path='/:tag_id/:product_id' component={ProductsPage}/>
+				<Route exact path='/:branch' component={ProductsPage}/>
+				<Route exact path='/:branch/:tag_id' component={ProductsPage} />
+				<Route exact path='/:branch/:tag_id/:product_id' component={ProductsPage} />
 			</Switch>
 		</Application>
 	</Router>

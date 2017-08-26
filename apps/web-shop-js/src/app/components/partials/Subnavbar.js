@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router-dom'
 import l from '../../utils/Localization'
+import AppEvents from '../../utils/AppEvents'
+import AppDispatcher from '../../utils/AppDispatcher'
 
 class Subnavbar extends Component {
 
@@ -19,10 +21,14 @@ class Subnavbar extends Component {
 		})
 	}
 
-	handleCollapseNavbar = (event) => {
+	handleLink = (event) => {
+		this.handleCollapseNavbar()
+	}
+
+	handleCollapseNavbar = () => {
 		this.setState({
 			opened: false
-		})
+		});
 	}
 
 	componentDidMount = () => {
@@ -67,7 +73,7 @@ class Subnavbar extends Component {
 					{this.props.items &&
 						this.props.items.map((item) => {
 						return (
-								<Link to={this.props.url + item.id} onClick={this.handleCollapseNavbar} className={parseInt(item.id)==parseInt(this.props.activeId) ? "active" : ""} key={item.id}>
+								<Link to={this.props.url + "/" + item.id} onClick={this.handleLink} className={parseInt(item.id)==parseInt(this.props.activeId) ? "active" : ""} key={item.id}>
 									{item.image ?
 										<span className='sub-navbar-item-image' style={{backgroundImage: "url("+item.image+")"}}></span>
 										:

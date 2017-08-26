@@ -19,6 +19,7 @@
 			.modal-content {
 				@include border-radius(0);
 				border: 0;
+				padding-bottom: 200px;
 			}
 		}
 	}
@@ -36,6 +37,7 @@
 		background-size: contain;
 		background-position: center center;
 		background-repeat: no-repeat;
+		z-index: 10;
 	}
 
 

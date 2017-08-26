@@ -9,7 +9,7 @@ let l = new LocalizedStrings({
    createOrder:                  "Оформить заказ",
    basket:          					"Корзина",
    yourOrder:                    "Ваш заказ",
-   putToBasket:                  "Добавить в корзину",
+   putToBasket:                  "Купить",
  },
  en:{
    more: 								"More..",
@@ -19,7 +19,7 @@ let l = new LocalizedStrings({
    createOrder:                  "Proceed Order",
    basket:          					"Basket",
    yourOrder:                    "Your order",
-   putToBasket:                  "Put to Basket",
+   putToBasket:                  "Buy",
  }
 });
 

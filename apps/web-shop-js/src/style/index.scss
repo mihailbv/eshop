@@ -27,6 +27,25 @@ a {
 .button-empty {
 	border: 1px solid $bg-color;
 	color: darken($bg-color, 5%);
+	@include border-radius(4px);
+	padding: 12px 24px;
+	font-size: 16px;
+	text-decoration: none !important;
+	display: inline-block;
+	&:hover {
+		color: $bg-color;
+	}
+	&:focus {
+		color: $bg-color;
+	}
+
+	&.button-small {
+		padding: 8px 16px;		
+	}
+	&.button-large {
+		padding: 16px 32px;
+		font-size: 18px;
+	}
 }
 
 .button-solid {
@@ -43,132 +62,18 @@ a {
 	&:focus {
 		color: $color;
 	}
-}
-
-
-.top-navbar {
-	.container {
-		-webkit-transition: left 0.2s ease;
-		-moz-transition: left 0.2s ease;
-		-o-transition: left 0.2s ease;
-		transition: left 0.2s ease;
+	&.button-small {
+		padding: 8px 16px;		
 	}
-
-	.top-navbar-button {
-		display: inline-block;
-		padding: 12px;
-		font-size: 14px;
-		white-space: nowrap;
-		text-decoration: none;
-		color: $text-color;
-		i {
-			margin-right: 5px;
-		}
-		&:hover {
-			background: rgba(0, 0, 0, 0.05);
-		}
-	}
-	.top-basket-button {
-		float: right;
-	}
-	@media (max-width: 768px) {
-		.container {
-			position: fixed;
-			left: 0;
-			top: 0;
-			bottom: 0;
-			background: rgba(0, 0, 0, 0.9);
-			width: 300px;
-			z-index: 3;
-			padding: 0;
-			padding-top: 25px;
-		}
-		.top-navbar-button {
-			color: #fff;
-			display: block;
-			text-decoration: none;
-			&:hover {
-				background: rgba(255, 255, 255, 0.1);
-			}
-			i {
-				display: none;
-			}
-		}
-		.top-basket-button {
-			float: none;
-		}
-		.sidebar-screen-overlay {
-			position: fixed;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			background: rgba(0, 0, 0, 0.6);
-			z-index: 2;
-		}
-		&.side-position-closed {
-			.container {
-				left: -300px;
-			}
-			.top-navbar-button {
-				padding: 20px;
-			}
-			.sidebar-screen-overlay {
-				display: none;
-			}
-		}
+	&.button-large {
+		padding: 16px 32px;
+		font-size: 18px;
 	}
 }
 
 
 
-.bottom-navbar {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: $bottom-navbar-background;
-	.bottom-navbar-button {
-		text-align: center;
-		font-size: 12px;
-		display: block;
-		padding: 12px 6px 6px 6px;
-		text-decoration: none;
-		color: $bottom-navbar-color;
-		position: relative;
-		text-overflow: ellipsis;
-    	overflow: hidden;
-		i {
-			display: block;
-			font-size: 22px;
-			padding-bottom: 5px;
-			.badge {
-				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-				margin-right: 5px;
-			}
-		}
-		.badge {
-			background: #ff0000;
-			border-radius: 100px;
-			padding: 2px 5px 3px 5px;
-			position: absolute;
-			top: 7px;
-			font-size: 10px;
-			border: 2px solid $bottom-navbar-background;
-			&.badge-green {
-				background: #8bc34a;
-			}
-		}
 
-	}
-	> .container > .row > div {
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	> .container > .row > div:not(:last-child) {
-		border-right: 1px solid rgba(255, 255, 255, 0.3);
-	}
-}
 
 .sub-navbar {
 	$sub-navbar-height: 58px;

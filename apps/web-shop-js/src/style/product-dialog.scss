@@ -4,9 +4,65 @@
 
 .product-full-cart {
 	.product-full-cart-name {
-		margin: 0 0 5px 0;
+		margin: 0;
 	}
 	.product-full-cart-description {
+		margin-top: 10px;
 		font-size: 18px;
+	}
+	.product-full-cart-image {
+		height: 500px;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+	}
+	.product-full-variations {
+		margin: 20px 0 40px 0;
+		.product-full-variation-group {
+			.product-full-variation-group-name {
+				margin-top: 20px;
+				font-weight: bold;
+				font-size: 16px;
+				margin-bottom: 5px;
+			}
+			a {
+				margin: 0 10px 10px 0;
+				&:last-child {
+					margin-right: 0;
+				}
+				&.product-variant-active {
+					background: $bg-color;
+					color: $color;
+				    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				    box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				}
+			}
+		}
+	}
+	.product-full-cart-buy-container {
+		position: relative;
+		border-top: 1px solid #aaa;
+		padding-top: 30px;
+		.product-full-cart-buy-price {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			line-height: 57px;
+			font-size: 32px;
+			font-weight: bold;
+		}
+	}
+	.product-full-cart-properties {
+		font-size: 16px;
+		margin-top: 20px;
+		> div {
+			margin-bottom: 8px;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 8px;
+			width: 50%;
+			display: inline-block;
+			vertical-align: bottom;
+		}
 	}
 }

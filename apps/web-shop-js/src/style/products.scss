@@ -40,8 +40,9 @@
 		position: relative;
 		.product-cart-image {
 			height: 170px;
+			background-image: url(images/loader.gif);
 			background-repeat: no-repeat;
-			background-size: contain;
+			background-size: 64px;
 			background-position: center center;
 			display: block;
 		}
@@ -90,10 +91,20 @@
 			.product-cart-buy-button {
 				float: right;
 				display: inline-block;
-				padding-left: 12px;
-				padding-right: 12px;
+				padding: 0 12px;
 				@include border-radius(4px);
 			}
+		}
+		.product-cart-label {
+			position: absolute;
+			right: 0;
+			top: 155px;
+			font-size: 16px;
+			line-height: 35px;
+			padding-left: 10px;
+			padding-right: 10px;
+			background: #ff0000;
+			color: #fff;
 		}
 	}
 
