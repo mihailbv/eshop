@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
 			match 'container(/:action(/:id))(.:format)' => "container", via: [:get, :post, :options]
+			match 'basket(/:action(/:id))(.:format)' => "basket", via: [:get, :post, :options]
 		end
 	end
 	

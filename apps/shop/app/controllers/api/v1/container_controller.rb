@@ -1,30 +1,32 @@
+#encoding: utf-8
 class Api::V1::ContainerController < ApplicationController
 	before_action :access_control_allow_origin
 
 	def index
 		render json: {
 					status: :ok, 
-					tags: [
-						{id: 1, title: "Пицца", image: "https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 2, title: "Салаты", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 3, title: "Супы", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 4, title: "Напитки", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 5, title: "Горячее", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 6, title: "Десерты", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 7, title: "WOK на сковороде", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"},
-						{id: 8, title: "Газировка и соки", image:"https://cdn2.iconfinder.com/data/icons/tasty-bites-icon-set/128/donuts.png"}
-					],
-					products: [
-						{id: 1, name: "Sushi", price: 140.5},
-						{id: 2, name: "Pizza", price: 100.0},
-						{id: 3, name: "Soup", price: 150.0},
-						{id: 4, name: "Salad", price: 210.0},
-						{id: 5, name: "Drinks", price: 330.0},
-					],
+					tags: Api::Shop.get_first_level_tags,
+					products: Api::Shop.get_all_organization_products,
 					head: {
-						title: 'Product List Page'
+						title: 'Наше меню'
 					}
 				}
+	end
+
+	def tag
+		render json: {
+					status: :ok, 
+					tags: Api::Shop.get_first_level_tags,
+					products: Api::Shop.get_organization_products_by_tag({tag_id:params[:tag_id]}),
+					head: {
+						title: 'Рубрика'
+					}
+				}
+	end
+
+
+	def test
+		render json: Api::Shop.get_all_tags()
 	end
 
 
@@ -35,7 +37,8 @@ class Api::V1::ContainerController < ApplicationController
 				{title: "Акции", link:"#"},
 				{title: "Доставка", link:"#"},
 				{title: "Контакты", link:"#"},
-				{title: "Корзина", link:"#", className: "top-navbar-button top-basket-button", glyphClassName: "fa fa-shopping-basket"},
+				{title: "Корзина", link:"#", role: :cart, className: "top-navbar-button top-basket-button", glyphClassName: "fa fa-shopping-basket"},
+				{title: "СЕГОДНЯ: С 09:50 ДО 02:00", className: "top-navbar-button top-basket-button", glyphClassName: "fa fa-clock-o"},
 			],
 			toolbar: [
 			]
