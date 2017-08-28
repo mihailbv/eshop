@@ -35,10 +35,8 @@ class ProductList extends Component {
       if ($(item).position().top<$(window).scrollTop()+$(window).height()) {
         let image_url = $(el).attr("data-image");
 
-        setTimeout(()=>{
-          $(el).css({"background-image": `url(${image_url})`, "background-size": "contain"});
-          $(el).removeAttr('data-image');
-        }, 1400)
+        $(el).css({"background-image": `url(${image_url})`, "background-size": "cover"});
+        $(el).removeAttr('data-image');
       }
     });
   }

@@ -1,82 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReactJS Bootstrap Starter</title>
+    <title></title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="ReactJS Bootstrap Starter">
-		<meta name="author" content="Erwan DATIN (MacKentoch)">
-		<meta name="google-site-verification" content="buxa3v8MfNuask2fIYJCkQbeKsDwEnzyE3EXxF_rfI8" />
+		<meta name="description" content="">
     <style>
-      .loading-message {
-        position: relative;
-        margin: 100px auto;
-        text-align: center;
-        color: #425164;
-      }
-
-      .spinner {
-        margin: 10px auto;
-        width: 40px;
-        height: 40px;
-        position: relative;
-        text-align: center;
-
-        -webkit-animation: sk-rotate 2.0s infinite linear;
-        animation: sk-rotate 2.0s infinite linear;
-      }
-
-      .dot1, .dot2 {
-        width: 60%;
-        height: 60%;
-        display: inline-block;
-        position: absolute;
+      .loader {
+        z-index: 3000;
+        position: fixed;
+        left: 0;
         top: 0;
-        background-color: #425164;
-        border-radius: 100%;
-
-        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-        animation: sk-bounce 2.0s infinite ease-in-out;
-      }
-
-      .dot2 {
-        top: auto;
+        right: 0;
         bottom: 0;
-        -webkit-animation-delay: -1.0s;
-        animation-delay: -1.0s;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.9);
+        font-family: 'Roboto', sans-serif;
       }
-
-      @-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
-      @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
-
-      @-webkit-keyframes sk-bounce {
-        0%, 100% { -webkit-transform: scale(0.0) }
-        50% { -webkit-transform: scale(1.0) }
+      .loader .loader-image {
+        height: 50%;
+        background: url(images/loader.gif) center bottom no-repeat;
+        background-size: 120px;
       }
-
-      @keyframes sk-bounce {
-        0%, 100% {
-          transform: scale(0.0);
-          -webkit-transform: scale(0.0);
-        } 50% {
-          transform: scale(1.0);
-          -webkit-transform: scale(1.0);
-        }
+      .loader .loader-label {
+        padding-top: 20px;
+        font-size: 28px;
+        text-align: center;
+      }
+      .loader.hidden-loader {
+        right: auto;
+        bottom: auto;
+        width: 0 !important;
+        height: 0 !important;
       }
     </style>
   </head>
   <body>
     <div class="loader">
-      <p class="loading-message">
-        <i>
-          Loading...
-        </i>
-      </p>
-      <div class="spinner">
-        <div class="dot1"></div>
-        <div class="dot2"></div>
-      </div>
+      <div class="loader-image"></div>
+      <div class="loader-label">Загрузка</div>
     </div>
     <section id="root"></section>
     <script type="text/javascript" src="/public/assets/bundle.js"></script>

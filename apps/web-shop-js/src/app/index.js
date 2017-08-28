@@ -1,11 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, IndexRoute, Switch } from 'react-router-dom'
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import Application from './components/Application';
-import { AppContainer }     from 'react-hot-loader';
-import Home from './components/Home';
-import ProductsPage from './components/containers/ProductsPage';
+import AppRouter from './utils/AppRouter';
 
 import 'jquery';
 import 'babel-polyfill';
@@ -25,19 +20,6 @@ import '../style/product-dialog.scss';
 
 
 
-
-injectTapEventPlugin();
-
-let browserHistory = Router.browserHistory;
-
 render((
-	<Router history={browserHistory}>
-		<Application>
-			<Switch>
-				<Route exact path='/:branch' component={ProductsPage}/>
-				<Route exact path='/:branch/:tag_id' component={ProductsPage} />
-				<Route exact path='/:branch/:tag_id/:product_id' component={ProductsPage} />
-			</Switch>
-		</Application>
-	</Router>
+	<AppRouter />
 ), document.getElementById('root'));

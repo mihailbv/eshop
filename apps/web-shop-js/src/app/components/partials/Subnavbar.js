@@ -65,7 +65,7 @@ class Subnavbar extends Component {
 						{this.state.opened ?
 							<span>{l.collapse}<i className="fa fa-caret-up" aria-hidden="true"></i></span>
 							:
-							<span>{l.more}..<i className="fa fa-caret-down" aria-hidden="true"></i></span>
+							<span>{l.more}<i className="fa fa-caret-down" aria-hidden="true"></i></span>
 						}
 					</Link>
 				}

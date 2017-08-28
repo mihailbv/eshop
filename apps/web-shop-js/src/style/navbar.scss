@@ -6,6 +6,10 @@
 	.container {
 		@include transition(left 0.3s ease);
 	}
+	.top-navbar-logo {
+		position: absolute;
+		height: 100px;
+	}
 
 	.top-navbar-button {
 		display: inline-block;

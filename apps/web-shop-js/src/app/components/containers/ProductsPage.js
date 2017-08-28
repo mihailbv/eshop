@@ -7,6 +7,8 @@ import Subnavbar from '../partials/Subnavbar'
 import PromoSlider from '../plugins/PromoSlider'
 import l from '../../utils/Localization'
 import CartWidget from '../cart/CartWidget'
+import { DropdownButton, MenuItem } from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
 
 
 class ProductsPage extends Component {
@@ -92,7 +94,6 @@ class ProductsPage extends Component {
 
 
   render() {
-    console.log(this.props.match.params)
     return (
       <div>
         <PromoSlider />
@@ -104,7 +105,20 @@ class ProductsPage extends Component {
               activeId={this.props.match.params.tag_id} ref="tagsBar" />
           </div>
         </div>
-        <h2 className="product-list-tag-title">Суши</h2>
+
+        <div className="product-list-tag-title-container">
+          <h2 className="product-list-tag-title">Суши</h2>
+
+          <div className="subtag-selector">
+            <DropdownButton title="Фильтр" bsSize="large" id="tag_id" pullRight>
+              <LinkContainer exact to={`/${this.props.match.params.branch}`}><MenuItem eventKey="1">Показать все</MenuItem></LinkContainer>
+              <LinkContainer exact to={`/${this.props.match.params.branch}/10`}><MenuItem eventKey="2">Суши</MenuItem></LinkContainer>
+              <LinkContainer exact to={`/${this.props.match.params.branch}/20`}><MenuItem eventKey="3">Роллы</MenuItem></LinkContainer>
+            </DropdownButton>
+          </div>
+        </div>
+
+
         <ProductList 
             products={this.state.containerData.products} 
             activeProductId={this.props.match.params.product_id}

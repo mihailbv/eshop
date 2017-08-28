@@ -15,6 +15,9 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
+		@media (max-width: 768px) {
+			height: 300px;
+		}
 	}
 	.product-full-variations {
 		margin: 20px 0 40px 0;

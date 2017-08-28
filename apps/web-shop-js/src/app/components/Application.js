@@ -4,6 +4,7 @@ import PromoSlider from './plugins/PromoSlider'
 import Navbar from './partials/Navbar'
 import Toolbar from './partials/Toolbar'
 import Footer from './partials/Footer'
+import Loader from './plugins/Loader'
 import CartWidget from './cart/CartWidget'
 import ProductsPage from './containers/ProductsPage';
 import AppAPI from '../utils/AppAPI'
@@ -34,7 +35,6 @@ class Application extends Component {
   }
 
   render() {
-
     return (
         <div>
         {this.state.containerData.navbar &&
@@ -50,6 +50,7 @@ class Application extends Component {
         <CartWidget />
         <Toolbar />
         <Footer />
+        
       </div>
     )
   }

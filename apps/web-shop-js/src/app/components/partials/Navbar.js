@@ -28,7 +28,7 @@ class Navbar extends Component {
 				<div className="container">
 					{this.props.items.map(function(item){
 						return (
-							<Link to={item.link}  className={item.className ? item.className : "top-navbar-button"} key={item.title}>
+							<Link to={item.link ? item.link : "#"}  className={item.className ? item.className : "top-navbar-button"} key={item.title}>
 								{item.glyphClassName &&
 									<i className={item.glyphClassName}></i>
 								}	

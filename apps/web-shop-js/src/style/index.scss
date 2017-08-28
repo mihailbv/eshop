@@ -1,13 +1,15 @@
 @import "theme-default";
 @import "mixins";
 
+$mobile-version-border-width: 768px;
+
 html {
   font-family: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
-  @media (max-width: 768px) {
+  @media (max-width: $mobile-version-border-width) {
   	padding-bottom: 62px;
   }
   &.modal-open {
@@ -96,6 +98,11 @@ a {
 		display: inline-block;
 		text-decoration: none;
 		color: $color;
+		@media (max-width: $mobile-version-border-width) {
+			font-size: 18px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
 		&.active {
 			color: $sub-navbar-active-color;
 			border-bottom: 2px solid $sub-navbar-active-color;
@@ -193,9 +200,121 @@ a {
 	}
 }
 
+.loader {
+	z-index: 3000;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.9);
+	.loader-image {
+		height: 50%;
+		background: url(images/loader.gif) center bottom no-repeat;
+		background-size: 120px;
+	}
+	.loader-label {
+		padding-top: 20px;
+		font-size: 28px;
+		text-align: center;
+	}
+	&.hidden-loader {
+		right: auto;
+		bottom: auto;
+		width: 0 !important;
+		height: 0 !important;
+
+	}
+}
+
+
+
+
+
+
+
+
+
+.product-list-tag-title-container {
+	position: relative;
+	margin: 15px 30px 0 15px;
+	padding-bottom: 15px;
+	color: $bg-color;
+	border-bottom: 1px solid $bg-color;
+    -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.1);
+
+	.product-list-tag-title {
+		text-align: center;
+		font-size: 44px;
+		font-weight: 400;
+		@media (max-width: $mobile-version-border-width) {
+			text-align: left;
+		}
+
+	}
+	.subtag-selector {
+		position: absolute;
+		right: 0px;
+		top: 4px;
+		button {
+			@include border-radius(4px);
+			&:focus {
+				background: $color;
+				color: #000;
+				border-color: #ccc;
+			}
+			&:hover {
+				background: $bg-color;
+				color: $color;
+				border-color: $bg-color;
+				@include box-shadow(0, 10px, 15px, rgba($bg-color, .3));
+			}
+			&:active {
+				background: $bg-color;
+				color: $color;
+				-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+			}
+		}
+		.open>.dropdown-toggle.btn-default {
+				background: $bg-color;
+				color: $color;
+				-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 10px 20px rgba(0, 0, 0, .15) inset;			
+		}
+		.dropdown-menu>li>a {
+			font-size: 16px;
+			padding: 12px 25px;
+		}
+		.dropdown-menu>.active>a {
+			background: $bg-color;
+			color: $color;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .promo-slider {
 	height: 250px;
+	@media (max-width: $mobile-version-border-width) {
+		display: none;
+	}
 }
 
 
